@@ -1,5 +1,8 @@
 name: Add PR to project
 on:
+  issues:
+    types: [opened, reopened, labeled, milestoned]
+  workflow_dispatch: {}   
   pull_request:
     types:
       - ready_for_review
