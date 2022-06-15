@@ -1,0 +1,35 @@
+name: Org CI
+on:
+  branch_protection_rule:
+    types: [created, edited, deleted]
+  check_run:
+    types: [created, rerequested, completed, requested_action]
+  check_suite:
+    types: [completed]
+  create:
+  delete:
+  deployment:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest'
+    permissions:
+      repository-projects: write 
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo Hello from org action
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+      - name: debug
+        env:
+          GH_EVENT: ${{ toJson(github.event) }}
+        run: echo ${{ toJson(github.event) }}
