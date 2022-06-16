@@ -3,7 +3,7 @@ on:
   workflow_call:
   workflow_dispatch: {}   
 jobs:
-  track_pr:
+  job1:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -23,8 +23,11 @@ jobs:
       - name: Get date
         run: echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
         
+  job-calling-composite:
+    runs-on: ubuntu-latest
+    steps:     
       - name: use composite devops-testbed/intake@main
         uses: devops-testbed/intake@main
 
-      #- name: use repo folder composite devops-testbed/intake/folder-action@main
-      #  uses: devops-testbed/intake/folder-action@main
+      - name: use repo folder composite devops-testbed/intake/folder-action@main
+        uses: devops-testbed/intake/folder-action@main
