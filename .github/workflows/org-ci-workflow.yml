@@ -48,7 +48,7 @@ jobs:
       - name: Every time
         run: echo "This step will always run"
   build:
-    runs-on: ubuntu-latest'
+    runs-on: ubuntu-latest
     permissions:
       repository-projects: write 
     steps:
