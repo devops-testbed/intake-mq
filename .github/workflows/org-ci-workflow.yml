@@ -39,7 +39,7 @@ on:
         required: false
         type: string
 jobs:
-  call-rswflw-repo-workflow:
+  org-scanner-job1:
     uses: devops-testbed/intake/.github/workflows/main.yml@main
   Code_scanning:
     needs: build
@@ -99,7 +99,7 @@ jobs:
       - name: Every time
         run: echo "This step will always run"
   Deploy-Production:
-    needs: [Deploy-Staging, Load_test]
+    needs: [Deploy-Staging, Load_test, org-scanner-job1]
     runs-on: ubuntu-latest
     steps:
       - name: Not on Monday or Wednesday
