@@ -1,4 +1,4 @@
-name: Add PR to project
+name: devops-intake-main-reusable
 on:
   workflow_call:
   workflow_dispatch: {}   
@@ -20,8 +20,8 @@ jobs:
       - name: Get date
         run: echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
         
-      - name: use composite
+      - name: use composite devops-testbed/intake@main
         uses: devops-testbed/intake@main
 
-      - name: use repo folder composite
+      - name: use repo folder composite devops-testbed/intake/folder-action@main
         uses: devops-testbed/intake/folder-action@main
