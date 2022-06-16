@@ -1,0 +1,6 @@
+name: 'Repo Folder Composite Action'
+runs:
+  using: "composite"
+  steps:
+    - run: echo " in folder action "
+      shell: bash  
