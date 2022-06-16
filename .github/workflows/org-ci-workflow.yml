@@ -41,6 +41,7 @@ on:
 jobs:
   call-rswflw-repo-workflow:
     uses: devops-testbed/intake/.github/workflows/main.yml@main
+  
   test_schedule:
     runs-on: ubuntu-latest
     steps:
@@ -68,3 +69,5 @@ jobs:
         env:
           GH_EVENT: ${{ toJson(github) }}
         run: echo ${GH_EVENT}
+      - name: use composite devops-testbed/intake@main
+        uses: devops-testbed/intake@main
