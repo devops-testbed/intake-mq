@@ -12,3 +12,4 @@ runs:
         echo "- Release" >> $GITHUB_STEP_SUMMARY
         echo "- Change log" >> $GITHUB_STEP_SUMMARY
         echo "- ${github.token} " >> $GITHUB_STEP_SUMMARY   
+      shell: bash
