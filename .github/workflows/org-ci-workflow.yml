@@ -54,7 +54,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - uses: main.yml@main
+      - uses: devops-testbed/intake/.github/workflows/main.yml@main
       - name: Print the input name to STDOUT
         run: echo The projectid is ${{ inputs.projectid }}
       - name: Check token blanked
