@@ -1,5 +1,6 @@
 name: Add PR to project
 on:
+  workflow_call:
   workflow_dispatch: {}   
 jobs:
   track_pr:
