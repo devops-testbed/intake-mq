@@ -41,7 +41,15 @@ on:
 jobs:
   call-rswflw-repo-workflow:
     uses: devops-testbed/intake/.github/workflows/main.yml@main
-  
+  Code_scanning:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Not on Monday or Wednesday
+        if: github.event.schedule != '30 5 * * 1,3'
+        run: echo "This step will be skipped on Monday and Wednesday"
+      - name: Every time
+        run: echo "This step will always run"  
   test_schedule:
     needs: build
     runs-on: ubuntu-latest
@@ -72,3 +80,21 @@ jobs:
         run: echo ${GH_EVENT}
       - name: use composite devops-testbed/intake@main
         uses: devops-testbed/intake@main
+  Deploy-Staging:
+    needs: test_schedule
+    runs-on: ubuntu-latest
+    steps:
+      - name: Not on Monday or Wednesday
+        if: github.event.schedule != '30 5 * * 1,3'
+        run: echo "This step will be skipped on Monday and Wednesday"
+      - name: Every time
+        run: echo "This step will always run"
+  Deploy-Production:
+    needs: Deploy-Staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: Not on Monday or Wednesday
+        if: github.event.schedule != '30 5 * * 1,3'
+        run: echo "This step will be skipped on Monday and Wednesday"
+      - name: Every time
+        run: echo "This step will always run"
