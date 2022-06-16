@@ -19,6 +19,7 @@ runs:
       run: echo "::set-output name=random-number::$(echo $RANDOM)"
       shell: bash
     - name: Generate list using Markdown
+      shell: bash
       run: |
         echo "## Action Summary" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
