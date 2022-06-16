@@ -1,4 +1,4 @@
-name: Org CI
+name: reusable-ci
 on:
   workflow_call:
     inputs:
