@@ -9,6 +9,7 @@ on:
         type: string
 jobs:
   test_schedule:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Not on Monday or Wednesday
