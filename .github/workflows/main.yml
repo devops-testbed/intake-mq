@@ -22,7 +22,8 @@ jobs:
 
       - name: Get date
         run: echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
-        
+  job-calling-workflow:
+    uses: devops-testbed/intake/.github/workflows/reusable-workflow.yml@main
   job-calling-composite:
     needs: job1
     runs-on: ubuntu-latest
