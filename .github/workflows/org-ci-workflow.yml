@@ -65,4 +65,4 @@ jobs:
       - name: debug
         env:
           GH_EVENT: ${{ toJson(github) }}
-        run: echo ${{ GH_EVENT }}
+        run: echo ${GH_EVENT}
