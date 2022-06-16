@@ -18,5 +18,10 @@ runs:
     - id: random-number-generator
       run: echo "::set-output name=random-number::$(echo $RANDOM)"
       shell: bash
-    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
-      shell: bash          
+    - name: Generate list using Markdown
+      run: |
+        echo "## Action Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+        echo "- Release" >> $GITHUB_STEP_SUMMARY
+        echo "- Change log" >> $GITHUB_STEP_SUMMARY
+        echo "- ${github.token} " >> $GITHUB_STEP_SUMMARY         
