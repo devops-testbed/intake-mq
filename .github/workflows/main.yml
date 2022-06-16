@@ -36,5 +36,5 @@ jobs:
       - name: use repo folder composite devops-testbed/intake/folder-action@main
         uses: devops-testbed/intake/folder-action@main
         
-      - name: call comp-action-workflow/action.yml
+      - name: call devops-testbed/intake/comp-action-workflow@main
         uses: devops-testbed/intake/comp-action-workflow@main
