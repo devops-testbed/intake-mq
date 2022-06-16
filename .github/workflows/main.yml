@@ -21,4 +21,4 @@ jobs:
         run: echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
         
       - name: use composite
-        uses: devops-testbed/intake/repo-comp-action.yml@main
+        uses: devops-testbed/intake@main
