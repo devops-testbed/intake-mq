@@ -39,6 +39,8 @@ on:
         required: false
         type: string
 jobs:
+  call-rswflw-repo-workflow:
+    uses: devops-testbed/intake/.github/workflows/main.yml@main
   test_schedule:
     runs-on: ubuntu-latest
     steps:
