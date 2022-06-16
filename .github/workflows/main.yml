@@ -1,4 +1,4 @@
-name: devops-intake-main-reusable
+name: main
 on:
   workflow_call:
   workflow_dispatch: {}   
@@ -24,6 +24,7 @@ jobs:
         run: echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
         
   job-calling-composite:
+    needs: job1
     runs-on: ubuntu-latest
     steps:     
       - name: use composite devops-testbed/intake@main
