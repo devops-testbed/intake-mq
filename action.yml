@@ -13,7 +13,6 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v3
-    - uses: devops-testbed/intake/.github/workflows/reusable-workflow.yml@main
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
     - id: random-number-generator
