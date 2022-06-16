@@ -81,7 +81,7 @@ jobs:
       - name: use composite devops-testbed/intake@main
         uses: devops-testbed/intake@main
   Deploy-Staging:
-    needs: test_schedule
+    needs: [test_schedule, Code_scanning]
     runs-on: ubuntu-latest
     steps:
       - name: Not on Monday or Wednesday
