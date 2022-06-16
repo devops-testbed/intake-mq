@@ -1,0 +1,10 @@
+name: 'check if workflows work'
+description: 'test to check if workflows can be called from composite action'
+runs:
+  using: "composite"
+  steps:
+    - uses: action/checkout@v3
+    - name: echo
+      shell: bash  
+      run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+              
