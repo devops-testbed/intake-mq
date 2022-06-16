@@ -90,6 +90,7 @@ jobs:
       - name: use composite devops-testbed/intake@main
         uses: devops-testbed/intake@main
   Deploy-Staging:
+    environment: staging
     needs: [test_schedule, Code_scanning]
     runs-on: ubuntu-latest
     steps:
@@ -97,8 +98,9 @@ jobs:
         if: github.event.schedule != '30 5 * * 1,3'
         run: echo "This step will be skipped on Monday and Wednesday"
       - name: Every time
-        run: echo "This step will always run"
+        run: echo "This step will always run $SECRET"
   Deploy-Production:
+    environment: production
     needs: [Deploy-Staging, Load_test, org-scanner-job1]
     runs-on: ubuntu-latest
     steps:
@@ -106,4 +108,4 @@ jobs:
         if: github.event.schedule != '30 5 * * 1,3'
         run: echo "This step will be skipped on Monday and Wednesday"
       - name: Every time
-        run: echo "This step will always run"
+        run: echo "This step will always $SECRET"
