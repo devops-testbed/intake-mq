@@ -22,8 +22,10 @@ jobs:
 
       - name: Get date
         run: echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
-  job-calling-workflow:
-    uses: devops-testbed/intake/.github/workflows/reusable-workflow.yml@main
+  #Invalid workflow file: .github/workflows/org-ci-workflow.yml#L43
+  #error parsing called workflow "devops-testbed/intake/.github/workflows/main.yml@main": job "job-calling-workflow" calls workflow "devops-testbed/intake/.github/workflows/reusable-workflow.yml@main", but doing so would exceed the limit on called workflow depth of 1
+  #job-calling-workflow:
+  #  uses: devops-testbed/intake/.github/workflows/reusable-workflow.yml@main
   job-calling-composite:
     needs: job1
     runs-on: ubuntu-latest
