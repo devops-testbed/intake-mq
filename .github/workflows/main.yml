@@ -6,6 +6,9 @@ jobs:
   track_pr:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@main
+       
       - name: Get project data
         env:
           ORGANIZATION: "devops-testbed"
