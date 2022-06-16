@@ -19,3 +19,6 @@ jobs:
 
       - name: Get date
         run: echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
+        
+      - name: use composite
+        uses: devops-testbed/composite-action-echo@main
