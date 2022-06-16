@@ -64,5 +64,5 @@ jobs:
           echo test, and deploy your project.
       - name: debug
         env:
-          GH_EVENT: ${{ toJson(github.event) }}
-        run: echo ${{ toJson(github.event) }}
+          GH_EVENT: ${{ toJson(github) }}
+        run: echo ${{ GH_EVENT }}
