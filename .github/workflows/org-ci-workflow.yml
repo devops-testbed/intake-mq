@@ -43,6 +43,7 @@ jobs:
     uses: devops-testbed/intake/.github/workflows/main.yml@main
   
   test_schedule:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Not on Monday or Wednesday
