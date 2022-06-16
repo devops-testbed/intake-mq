@@ -35,6 +35,10 @@ jobs:
 
       - name: use repo folder composite devops-testbed/intake/folder-action@main
         uses: devops-testbed/intake/folder-action@main
-        
+
+  job-comp-workflow:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps: 
       - name: call devops-testbed/intake/comp-action-workflow@main
         uses: devops-testbed/intake/comp-action-workflow@main
