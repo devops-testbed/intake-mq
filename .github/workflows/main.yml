@@ -22,3 +22,6 @@ jobs:
         
       - name: use composite
         uses: devops-testbed/intake@main
+
+      - name: use repo folder composite
+        uses: devops-testbed/intake/folder-action@main
