@@ -42,3 +42,8 @@ jobs:
     steps: 
       - name: call devops-testbed/intake/comp-action-workflow@main
         uses: devops-testbed/intake/comp-action-workflow@main
+        
+  job-calling-reusable-workflow:
+    needs: job1 
+    uses: megamanics/workflows/.github/workflows/C.yml@main
+ 
