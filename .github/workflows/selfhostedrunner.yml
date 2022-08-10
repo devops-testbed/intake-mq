@@ -1,0 +1,15 @@
+name: runselfhosted
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: ls
+        run: ls -lart /home/admin/actions-runner/.runner
+      - name: cat /home/admin/actions-runner/.runner
+        run: cat /home/admin/actions-runner/.runner
