@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: ls
-        run: ls -lart /home/admin/actions-runner/.runner
+        run: ps -ef | grep -i Runner.Listener
       - name: cat /home/admin/actions-runner/.runner
         run: cat /home/admin/actions-runner/.runner
       - name: kill runner
