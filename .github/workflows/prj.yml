@@ -29,6 +29,5 @@ jobs:
         uses: actions/add-to-project@main
         with:
           project-url:  https://github.com/orgs/github/projects/3928
-          labeled: "ps-ops: closed won", "🌎 amer-west"
-          label-operator: AND
+          labeled: "ps-ops: closed won"
           github-token: ${{ secrets.PAT_TOKEN_ADD2PRJ_PS_AMERWEST }}
