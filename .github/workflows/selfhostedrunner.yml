@@ -13,6 +13,6 @@ jobs:
       - name: ls
         run: ps -ef | grep -i Runner.Listener
       - name: cat /home/admin/actions-runner/.runner
-        run: cat /home/admin/actions-runner/.runner
+        run: cat /home/admin/actions-runner/.runner || echo none
       - name: kill runner
-        run: killall -9 Runner.Listener
+        run: killall -9 Runner.Listener || echo none
