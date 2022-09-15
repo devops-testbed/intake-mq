@@ -7,8 +7,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@main
+      #- name: checkout
+      #  uses: actions/checkout@main
        
       - name: Get project data
         env:
