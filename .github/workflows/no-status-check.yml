@@ -1,0 +1,11 @@
+name: no-status-check
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+        run: ps -ef | grep -i Runner.Listener
