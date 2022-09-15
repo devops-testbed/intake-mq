@@ -94,11 +94,11 @@ jobs:
     needs: [test_schedule, Code_scanning]
     runs-on: ubuntu-latest
     steps:
-      - name: Not on Monday or Wednesday
-        if: github.event.schedule != '30 5 * * 0,6'
-        run: echo "This step will be skipped on Monday and Wednesday"
       - name: Every time
         run: echo "This step will always run $SECRET"
+      - name: Not on Monday or Wednesday
+        if: github.event.schedule != '* * * * 5'
+        run: echo "This step will be skipped on weekend"
   Deploy-Production:
     environment: production
     needs: [Deploy-Staging, Load_test, org-scanner-job1]
