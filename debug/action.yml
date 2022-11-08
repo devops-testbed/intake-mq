@@ -1,5 +1,4 @@
 name: 'context testing'
-description: 'dump context to logs'
 runs:
   using: "composite"
     steps:
