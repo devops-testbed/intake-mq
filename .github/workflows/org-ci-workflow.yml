@@ -93,6 +93,7 @@ jobs:
     environment: staging
     needs: [test_schedule, Code_scanning]
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/staging'
     steps:
       - name: Every time
         run: echo "This step will always run $SECRET"
@@ -103,6 +104,7 @@ jobs:
     environment: production
     needs: [Deploy-Staging, Load_test, org-scanner-job1]
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Not on Monday or Wednesday
         if: github.event.schedule != '30 5 * * 0,6'
