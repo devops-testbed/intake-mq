@@ -21,6 +21,7 @@ on:
   pull_request:
     branches: 
       - "main"
+      - "staging"
       - '!releases/**-alpha'
     paths:
       - '**.js'
