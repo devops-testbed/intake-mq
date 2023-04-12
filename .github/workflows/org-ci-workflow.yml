@@ -103,7 +103,7 @@ jobs:
         run: echo "This step will be skipped on weekend"
   Deploy-Production:
     environment: production
-    needs: [Deploy-Staging, Load_test, org-scanner-job1]
+    needs: [Load_test, org-scanner-job1]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
