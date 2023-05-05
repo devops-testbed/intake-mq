@@ -1,5 +1,5 @@
 name: merge-checks
-on: pmerge_group: 
+on: merge_group: 
 
 jobs:
   dump_contexts_to_log:
