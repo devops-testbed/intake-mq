@@ -17,10 +17,7 @@ on:
         required: false
         type: string
 jobs:
-  org-scanner-job1:
-    uses: devops-testbed/intake/.github/workflows/main.yml@main
   Code_scanning:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Not on Monday or Wednesday
@@ -28,64 +25,3 @@ jobs:
         run: echo "This step will be skipped on Monday and Wednesday"
       - name: Every time
         run: echo "This step will always run"  
-  test_schedule:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Not on Monday or Wednesday
-        if: github.event.schedule != '30 5 * * 1,3'
-        run: echo "This step will be skipped on Monday and Wednesday"
-      - name: Every time
-        run: echo "This step will always run"
-  Load_test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Not on Monday or Wednesday
-        if: github.event.schedule != '30 5 * * 1,3'
-        run: echo "This step will be skipped on Monday and Wednesday"
-      - name: Every time
-        run: echo "Minimal Load Test will always run"
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      repository-projects: write 
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@main
-      - name: Print the input name to STDOUT
-        run: echo The projectid is ${{ inputs.projectid }}
-      - name: Check token blanked
-        run: echo The token is ${{ secrets.GITHUB_TOKEN }}
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-      - name: debug
-        env:
-          GH_EVENT: ${{ toJson(github) }}
-        run: echo ${GH_EVENT}
-      - name: use composite devops-testbed/intake@main
-        uses: devops-testbed/intake@main
-  Deploy-Staging:
-    environment: staging
-    needs: [test_schedule, Code_scanning]
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/staging'
-    steps:
-      - name: Every time
-        run: echo "This step will always run $SECRET"
-      - name: Not on Monday or Wednesday
-        if: github.event.schedule != '* * * * 5'
-        run: echo "This step will be skipped on weekend"
-  Deploy-Production:
-    environment: production
-    needs: [Load_test, org-scanner-job1]
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Not on Monday or Wednesday
-        if: github.event.schedule != '30 5 * * 0,6'
-        run: echo "This step will be skipped on Monday and Wednesday"
-      - name: Every time
-        run: echo "This step will always $PROD_SECRET $SECRET"
