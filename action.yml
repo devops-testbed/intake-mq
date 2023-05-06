@@ -16,6 +16,7 @@ runs:
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
     - id: random-number-generator
+      shell: bash
       run: echo "random-number=$RANDOM" >> $GITHUB_ENV
     - name: Generate list using Markdown
       shell: bash
