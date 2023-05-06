@@ -1,14 +1,5 @@
 name: Org CI
 on:
-  branch_protection_rule:
-    types: [created, edited, deleted]
-  check_run:
-    types: [created, rerequested, completed, requested_action]
-  check_suite:
-    types: [completed]
-  create:
-  delete:
-  deployment:
   push:
     branches-ignore:    
       - 'mona/octocat'
