@@ -5,10 +5,10 @@ jobs:
   dump_contexts_to_log:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
+      - name: junit
         id: github_context_step
         run: echo '${{ toJSON(github) }}'
-      - name: Dump job context
+      - name: integration test
         run: echo '${{ toJSON(job) }}'
       - name: Dump steps context
         run: echo '${{ toJSON(steps) }}'
